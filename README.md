@@ -1,5 +1,5 @@
-# Post-Humanism Archive
-#Exploring Humanity Through Non-Human Eyes
+## Post-Humanism Archive
+### Exploring Humanity Through Non-Human Eyes
 
 by Anna Freri, Marco Luraschi, Raffaele Amietta
 
