@@ -1,8 +1,7 @@
 # Post-Humanism Archive
-### Exploring Humanity Through Non-Human Eyes
+#Exploring Humanity Through Non-Human Eyes
 
 by Anna Freri, Marco Luraschi, Raffaele Amietta
----
 
 In the digital era, our identity is shaped or even confirmed, through an endless stream of images, not only from human hands but also from machines. These images, taken without human intent or intervention, encapsulate moments often overlooked—capturing the essence of life at its most unguarded.
 
