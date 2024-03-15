@@ -1,0 +1,94 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>MAIND - Leonardo Angelucci</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="description" content="MAIND – SUPSI 2024" />
+    <meta name="keywords" content="Creative, Coding, SUPSI, 2024" />
+    <meta name="web_author" content="Leonardo Angelucci" />
+    <meta name="copyright" content="Leonardo Angelucci" />
+    <link href="src/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="main">
+      X: <span id="x"></span><br />
+      Y: <span id="y"></span><br />
+      Distamce: <span id="distance"></span><br />
+      TIME: <span id="time"></span><br />
+      ID: <span id="id"></span><br />
+
+
+      <div id="dot1"></div>
+      <div id="dot2"></div>
+      <div id="line" style="position: absolute; height: 2px; background: black;"></div>
+    </div>
+  </body>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="src/app.js"></script>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post-humanism archive</title>
+    <link href="src/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Post humanism archive</h1>
+    </div>
+    <div class="main">
+      <div style="display: flex; border-bottom: 1px solid white">
+        <h2>Pinch to zoom</h2>
+        <h2>Distance: <span id="distanceOutput">0</span></h2>
+      </div>
+      <div style="display: flex; border-bottom: 1px solid white">
+        <h2>Shake to switch view</h2>
+      </div>
+      <span id="rotationOutput" style="display: none"></span><br />
+    </div>
+
+    <div id="drawingArea"></div>
+    <svg id="lineSvg"></svg>
+  </body>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="src/app.js"></script>
+  <script src="src/shake.js"></script>
+  <script>
+    let isShaken;
+    var myShakeEvent = new Shake({
+      threshold: 15, // optional shake strength threshold
+      timeout: 1000, // optional, determines the frequency of event generation
+    });
+
+    // Start listening to device motion
+    myShakeEvent.start();
+
+    // Register a shake event listener on window with your callback
+    window.addEventListener("shake", shakeEventDidOccur, false);
+
+    //function to call when shake occurs
+    function shakeEventDidOccur() {
+      //put your own code here etc.
+      //alert("hello world!");
+      isShaken = !isShaken;
+
+      updateSupabaseShake(isShaken);
+    }
+
+    async function updateSupabaseShake(isShaken) {
+      let res = await database
+        .from(tableName)
+        .update({
+          isShaken: isShaken,
+          updated_at: new Date(),
+        })
+        .eq("id", id);
+    }
+  </script>
+</html>
